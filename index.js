@@ -19,7 +19,7 @@ async function start(){
 }
 start();
 
-app.use('/api/auth', require(''))
+app.use('/api/auth', require('./routes/auth'))
 const Cat = mongoose.model('Cat', { name: String });
 //const kitty = new Cat({ name: 'Zildjian' });
 //kitty.save().then(() => console.log('meow'));

@@ -16,3 +16,4 @@ router.post('/register', async (req, res)=>{
         res.sendStatus(500).json({message: 'Something wrong at server request'});
     }
 });
+module.exports = router;
