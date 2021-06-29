@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose');
 const app = express()
-const port = 3000
+const port = 5000
 
 async function start(){
     try{
@@ -21,8 +21,6 @@ start();
 
 app.use('/api/auth', require('./routes/auth'))
 const Cat = mongoose.model('Cat', { name: String });
-//const kitty = new Cat({ name: 'Zildjian' });
-//kitty.save().then(() => console.log('meow'));
 
 
 app.get('/', (req, res) => {
