@@ -17,7 +17,8 @@ function App() {
                                     <li><Link to="/about">About</Link></li>
                                 </ul>
                                 <div className="col s6 right-align">
-                                    <h3>MERN</h3>
+
+                                    <span><strong>MERN</strong></span>
                                 </div>
                             </div>
                             <div className="">asdfsf</div>
