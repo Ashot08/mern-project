@@ -1,8 +1,10 @@
-const express = require('express')
+const express = require('express');
 const mongoose = require('mongoose');
-const app = express()
-const port = 5000
+const app = express();
+const port = 5000;
 const cors = require('cors');
+
+app.use(express.json({extended: true}));
 
 async function start(){
     try{
@@ -25,7 +27,7 @@ app.use(cors({
     origin: 'http://localhost:3000',
 }));
 
-app.use('/api/auth', require('./routes/auth'))
+app.use('/api/auth', require('./routes/auth'));
 
 app.get('/', (req, res) => {
     res.send('Hello World!')

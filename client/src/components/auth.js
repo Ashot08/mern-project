@@ -6,7 +6,9 @@ export const Auth = () => {
             <h2>Auth</h2>
             <div>
                 <button onClick={function(){
-                    authApi.register({email: 'asdftest@ya.ru', password: '123qwe'});
+                    authApi.register({email: 'asdftest222@ya.ru', password: '123qwe'}).then(
+                        response => console.log(response)
+                    )
                 }}>Test Reg</button>
             </div>
         </div>
