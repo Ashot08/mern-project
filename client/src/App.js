@@ -1,8 +1,8 @@
 import './App.css';
 import 'materialize-css';
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
-import {Auth} from "./components/auth";
-import {About} from "./components/about";
+import {Auth} from "./components/Auth";
+import {About} from "./components/About";
 
 function App() {
     return (

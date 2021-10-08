@@ -10,19 +10,19 @@ router.post('/register',
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-            return res.status(400).json({ message: 'Errors',  errors: errors.array() });
+            return res.status(201).json({ message: 'Errors',  errors: errors.array(), ok: false });
         }
         try{
             const {email, password} = req.body;
             const candidate = await User.findOne({email});
             if(candidate){
-                return res.sendStatus(400).json({message: 'User with this email is already exists'});
+                res.status(201).json({message: 'User with this email is already exists', ok: false});
             }
             const user = new User({ email, password });
             await user.save();
-            res.sendStatus(201).json({message: 'Successful registration'});
+            res.status(201).json({message: 'Successful registration', ok: true});
         }catch (e){
-            res.sendStatus(500).json({message: 'Something wrong at server request'});
+            res.status(201).json({message: 'Something wrong at server request', ok: false});
         }
     });
 module.exports = router;
