@@ -1,15 +1,39 @@
 import {authApi} from "../api";
+import {useState} from "react";
 
-export const Auth = () => {
+export const Auth = (props) => {
+    const [form, setForm] = useState({
+        email: null,
+        password: null
+    });
+
+    const submitHandler = (e) => {
+        authApi.register({...form}).then(
+            response => console.log(response)
+        );
+        e.preventDefault();
+    }
+    const changeHandler = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        });
+    }
     return (
         <div>
             <h2>Auth</h2>
             <div>
-                <button onClick={function(){
-                    authApi.register({email: 'asdftest222@ya.ru', password: '123qwe'}).then(
-                        response => console.log(response)
-                    )
-                }}>Test Reg</button>
+                <form onSubmit={submitHandler} onChange={changeHandler}>
+                    <label>
+                        Email:
+                        <input type={'text'} name={'email'}/>
+                    </label>
+                    <label>
+                        Password:
+                        <input type={'password'} name={'password'}/>
+                    </label>
+                    <input className={'btn'} type={'submit'} value={'Send'}/>
+                </form>
             </div>
         </div>
     )
